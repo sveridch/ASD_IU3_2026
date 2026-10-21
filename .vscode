@@ -1,0 +1,8 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.sourcePaths": [
+        "32-Ridchenko/src/main/java",
+        "32-Ridchenko/src/test/java"
+    ],
+    "java.project.outputPath": "32-Ridchenko/target/classes"
+}
