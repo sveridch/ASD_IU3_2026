@@ -1,6 +1,8 @@
 package ru.bmstu.lab01.task_2;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Задача 2. Индекс первого вхождения.
@@ -26,19 +28,19 @@ public class FirstIndex {
 
     //ввод-вывод через стандартные потоки
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            String[] parts = reader.readLine().trim().split("\\s+");
+            int n = Integer.parseInt(parts[0]);
 
-        if (!scanner.hasNextInt()) return;
-        int n = scanner.nextInt();
+            int[] array = new int[n];
+            for (int i = 0; i < n; i++) {
+                array[i] = Integer.parseInt(parts[i + 1]);
+            }
 
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
-            array[i] = scanner.nextInt();
+            int x = Integer.parseInt(parts[n + 1]);
+            System.out.println(findFirstIndex(array, x));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        int x = scanner.nextInt();
-        System.out.println(findFirstIndex(array, x));
-
-        scanner.close();
     }
 }
